@@ -14,7 +14,7 @@ function getWebPaymentDetails(token){
     });
 }
 exports.storeTransactionInfo = function (req, res){
-    console.log(req);
+    console.log(JSON.stringify(req));
     var notificationType = req.params.notificationType;
     var token = req.params.token;
     //getWebPaymentDetails(token);
