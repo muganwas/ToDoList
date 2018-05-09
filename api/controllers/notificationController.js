@@ -1,11 +1,18 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-jquery = require('jquery'),
+request = require('request'),
 DoWebPaymentResult = mongoose.model('DoWebPaymentResult');
 
 //getwebpament details
 function getWebPaymentDetails(token){
+    let url = 'https://dev.aliendynamic.com/examples/web/getWebPaymentDetails.php';
+    request.post({url, form: {
+        token: token
+    }}, function(err, response, body){
+        res.send(body);
+        console.log("Get web payment details: "+body);
+    });
     /*
     jquery.post('https://dev.aliendynamic.com/examples/web/getWebPaymentDetails.php',
      { 
@@ -18,7 +25,7 @@ function getWebPaymentDetails(token){
 exports.storeTransactionInfo = function (req, res){
     var notificationType = req.query.notificationType;
     var token = req.query.token;
-    //getWebPaymentDetails(token);
+    getWebPaymentDetails(token);
     var obj = {notificationType: notificationType, token:token}
     var newDoWebPaymentResult = new DoWebPaymentResult(obj);
     newDoWebPaymentResult.save(function(err, detail){
