@@ -10,10 +10,6 @@ sendmail = require('sendmail')({
       error: console.error
     },
     silent: false,
-    dkim: { // Default: False
-      privateKey: fs.readFileSync('./dkim-private.pem', 'utf8'),
-      keySelector: 'mydomainkey'
-    },
     devPort: 1025, // Default: False
     devHost: 'localhost', // Default: localhost
     smtpPort: 2525, // Default: 25
