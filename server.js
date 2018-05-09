@@ -1,6 +1,7 @@
 var express = require('express'),
 app = express(),
 port = process.env.PORT || 4000,
+cors = require('cors'),
 mongoose = require('mongoose'),
 Details = require('./api/models/transactionsDetailsModel'),
 DoWebPaymentResult = require('./api/models/doWebPaymentResultModel'),
@@ -14,6 +15,8 @@ mongoose.connect('mongodb://alien:dynamics@ds117540.mlab.com:17540/aliendev', fu
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
+/** to avaoid problems with front end techs trying to access this resource */
+app.use(cors());
 /*automatically sends this
 **************************
 app.use(function(req, res){
