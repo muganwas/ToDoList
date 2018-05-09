@@ -14,10 +14,9 @@ function getWebPaymentDetails(token){
     });
 }
 exports.storeTransactionInfo = function (req, res){
-    console.log(JSON.stringify(req));
-    var notificationType = req.params.notificationType;
-    var token = req.params.token;
-    //getWebPaymentDetails(token);
+    var notificationType = req.query.notificationType;
+    var token = req.query.token;
+    getWebPaymentDetails(token);
     var obj = {notificationType: notificationType, token:token}
     var newDoWebPaymentResult = new DoWebPaymentResult(obj);
     newDoWebPaymentResult.save(function(err, detail){
