@@ -10,7 +10,6 @@ function getWebPaymentDetails(token){
     request.post({url, form: {
         token: token
     }}, function(err, response, body){
-        res.send(body);
         console.log("Get web payment details: "+body);
     });
     /*
