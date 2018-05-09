@@ -2,7 +2,8 @@ var express = require('express'),
 app = express(),
 port = process.env.PORT || 4000,
 mongoose = require('mongoose'),
-Task = require('./api/models/todoListModel'),
+Details = require('./api/models/transactionsDetailsModel'),
+DoWebPaymentResult = require('./api/models/doWebPaymentResultModel'),
 bodyParser = require('body-parser');
 //mongo db connection string
 mongoose.Promise = global.Promise;
@@ -21,9 +22,9 @@ app.use(function(req, res){
 */
 app.use(bodyParser.json());
 
-var routes = require('./api/routes/todoListRoutes');
+var routes = require('./api/routes/danapayRoutes');
 routes(app);
 
 app.listen(port);
 
-console.log("todoList RESTful API server started at " + port);
+console.log("danapayTransaction RESTful API server started at " + port);

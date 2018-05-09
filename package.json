@@ -1,7 +1,7 @@
 {
-  "name": "todolist",
+  "name": "danapaytransactions",
   "version": "1.0.0",
-  "description": "a to do list RESTful API server",
+  "description": "a RESTful API server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "mongoose": "^5.0.17"
   }
 }
