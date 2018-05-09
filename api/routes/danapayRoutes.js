@@ -13,7 +13,7 @@ module.exports = function(app){
         .put(details.update_a_transaction)
         .delete(details.delete_a_transaction);
         
-    app.route('/:notificationType&:token')
+    app.route('/details/:notificationType&:token')
         .get(notifications.storeTransactionInfo);
 
 }
