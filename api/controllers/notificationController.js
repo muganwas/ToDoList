@@ -1,16 +1,16 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-$ = require('jquery'),
+jquery = require('jquery'),
 DoWebPaymentResult = mongoose.model('DoWebPaymentResult');
 
 //getwebpament details
 function getWebPaymentDetails(token){
-    $.post('https://dev.aliendynamic.com/examples/web/getWebPaymentDetails.php',
+    jquery.post('https://dev.aliendynamic.com/examples/web/getWebPaymentDetails.php',
      { 
        token: token
-    }).then((result)=>{
-        console.log(result);
+    },function(success){
+        console.log(success);
     });
 }
 exports.storeTransactionInfo = function (req, res){
