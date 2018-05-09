@@ -6,7 +6,12 @@ Task = require('./api/models/todoListModel'),
 bodyParser = require('body-parser');
 //mongo db connection string
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://alien:dynamics@ds117540.mlab.com:17540/aliendev');
+mongoose.connect('mongodb://alien:dynamics@ds117540.mlab.com:17540/aliendev', function(err){
+    if(err)
+        throw err;
+    console.log("successful connection");
+});
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(function(req, res){
