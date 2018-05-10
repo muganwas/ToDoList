@@ -23,12 +23,18 @@ exports.save_a_transaction = function(req, res){
 }
 
 exports.read_a_transaction = function (req, res){
+    Details.findOne({token:req.params.token}, function(err, detail){
+        if(err)
+            res.send(err)
+        res.json(detail);
+    });
+    /*
     Details.findById(req.params.token, function(err, detail){
         if(err){
             res.send(err)
         }
         res.json(detail)
-    })
+    })*/
 }
 
 exports.update_a_transaction = function (req, res){

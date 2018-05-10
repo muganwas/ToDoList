@@ -2,7 +2,6 @@
 
 var mongoose = require('mongoose'),
 request = require('request'),
-sendmail = require('sendmail'),
 DoWebPaymentResult = mongoose.model('DoWebPaymentResult');
 
 //getwebpament details
@@ -11,15 +10,9 @@ function getWebPaymentDetails(token){
     request.post({url, form: {
         token: token
     }}, function(err, response, body){
-        sendmail({
-            from: 'no-reply@danapay.com',
-            to: 'stevenmuganwa@live.com, stevenmuganwa@gmail.com',
-            subject: 'Payment Status',
-            html: body,
-          }, function(err, reply) {
-            console.log(err && err.stack);
-            console.dir(reply);
-        });
+        //transaction result info
+        console.log(body);
+        
     });
 }
 exports.storeTransactionInfo = function (req, res){
