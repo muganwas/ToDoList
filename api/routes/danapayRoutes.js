@@ -16,7 +16,7 @@ module.exports = function(app){
         
     app.route('/')
         .get(notifications.storeTransactionInfo);
-    app.rout('/cities')
+    app.route('/cities')
         .get(cities.list_all_cities)
         .post(cities.save_a_city)
 
