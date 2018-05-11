@@ -38,7 +38,7 @@ exports.read_a_transaction = function (req, res){
 }
 
 exports.update_a_transaction = function (req, res){
-    Details.findOneAndUpdate({_id:req.params.token}, req.body, {new:true}, function(err, detail){
+    Details.findOneAndUpdate({token:req.params.token}, req.body, {new:true}, function(err, detail){
         if(err){
             res.send(err)
         }
@@ -47,7 +47,7 @@ exports.update_a_transaction = function (req, res){
 }
 
 exports.delete_a_transaction = function (re1, res){
-    Details.remove({_id:req.params.token}, function(err, detail){
+    Details.remove({token:req.params.token}, function(err, detail){
         if(err){
             res.send(err)
         }

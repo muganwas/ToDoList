@@ -2,6 +2,7 @@
 module.exports = function(app){
     var details = require('../controllers/detailsController');
     var notifications = require('../controllers/notificationController');
+    var cities = require('../controllers/cityController');
 
     //details routes
     app.route('/details')
@@ -15,5 +16,8 @@ module.exports = function(app){
         
     app.route('/')
         .get(notifications.storeTransactionInfo);
+    app.rout('/cities')
+        .get(cities.list_all_cities)
+        .post(cities.save_a_city)
 
 }

@@ -4,6 +4,7 @@ port = process.env.PORT || 4000,
 cors = require('cors'),
 mongoose = require('mongoose'),
 Details = require('./api/models/transactionsDetailsModel'),
+City = require('./api/models/cityModel'),
 DoWebPaymentResult = require('./api/models/doWebPaymentResultModel'),
 bodyParser = require('body-parser');
 //mongo db connection string
